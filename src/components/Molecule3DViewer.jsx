@@ -313,7 +313,6 @@ export default function Molecule3DViewer({
           height: '100%'
         }}
       >
-        <color attach="background" args={['#0A0E1A']} />
         <Suspense fallback={null}>
           <Scene atoms={atoms} bonds={bonds} autoRotate={autoRotate} />
         </Suspense>

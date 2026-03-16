@@ -39,7 +39,7 @@ export default function AboutUs() {
         <div className="min-h-screen bg-[#0A0E1A] text-white">
             <LandingNav />
             <AboutSubNav />
-            <div className="pt-[128px]" />
+            <div className="pt-[124px]" />
 
             {/* ── HERO with image ─────────────────────────────────────── */}
             <section className="relative h-[50vh] sm:h-[60vh] flex items-center overflow-hidden">

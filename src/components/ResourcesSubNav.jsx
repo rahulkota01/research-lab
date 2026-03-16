@@ -20,20 +20,22 @@ export default function ResourcesSubNav() {
 
     return (
         <div className="fixed top-20 left-0 right-0 z-40 bg-[#080C18]/95 backdrop-blur-xl border-b border-[#1E2A45]">
-            <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center h-12 gap-0 overflow-x-auto hide-scrollbar">
+            <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center h-11 gap-0 overflow-x-auto"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
                 {RES_LINKS.map((l) => {
                     const isActive = pathname === l.path;
                     return (
                         <Link
                             key={l.path}
                             to={l.path}
-                            className={`relative whitespace-nowrap px-4 h-full flex items-center text-sm font-medium transition-colors ${isActive ? 'text-white' : 'text-slate-500 hover:text-white'}`}
+                            className={`relative whitespace-nowrap px-3 sm:px-4 h-full flex items-center text-xs sm:text-sm font-medium transition-colors flex-shrink-0 ${isActive ? 'text-white' : 'text-slate-500 hover:text-white'}`}
                         >
                             {l.label}
                             {isActive && (
                                 <motion.div
                                     layoutId="res-subnav-underline"
-                                    className="absolute bottom-0 left-2 right-2 h-[2px] bg-cyan-400 rounded-full"
+                                    className="absolute bottom-0 left-1 right-1 h-[2px] bg-cyan-400 rounded-full"
                                 />
                             )}
                         </Link>

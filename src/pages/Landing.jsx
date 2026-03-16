@@ -132,7 +132,7 @@ function FloatingCard({ children, delay = 0, className = '' }) {
 // Section Components
 function Hero({ navigate }) {
   return (
-    <section className="relative min-h-screen flex items-center bg-[#0A0E1A] pt-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center bg-[#0A0E1A] overflow-hidden" style={{ paddingTop: 'calc(80px + 44px)' }}>
       <ParticlesBackground />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
@@ -226,8 +226,8 @@ function Hero({ navigate }) {
           />
 
           {/* 3D Molecule - transparent background */}
-          <div className="w-[240px] h-[240px] sm:w-[320px] sm:h-[320px] lg:w-[400px] lg:h-[400px] xl:w-[480px] xl:h-[480px]" style={{
-            filter: 'drop-shadow(0 0 30px rgba(0,212,255,0.1))'
+          <div className="w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] lg:w-[450px] lg:h-[450px] xl:w-[500px] xl:h-[500px] flex items-center justify-center relative" style={{
+            filter: 'drop-shadow(0 0 40px rgba(0,212,255,0.15))'
           }}>
             <Molecule3DViewer
               cid={2244}
@@ -440,6 +440,112 @@ function TechStrip() {
   );
 }
 
+function LabPreview() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  const labTools = [
+    { title: '15+ Glassware Types', desc: 'From beakers to reflux condensers, fully interactive.', icon: Beaker },
+    { title: 'Real-time Thermodynamics', desc: 'Monitor temperature, pH, and pressure live.', icon: Activity },
+    { title: 'AI Prediction', desc: 'Outcome forecasting with 95% scientific accuracy.', icon: Zap },
+    { title: 'Smart Documentation', desc: 'Auto-logging of every reaction step and result.', icon: BookOpen }
+  ];
+
+  return (
+    <section className="py-24 bg-[#050810] relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-cyan-500/5 blur-[120px] rounded-full" />
+      <div className="max-w-7xl mx-auto px-6" ref={ref}>
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+          >
+            <p className="text-cyan-400 text-sm uppercase tracking-[0.2em] font-bold mb-4">The Virtual Experience</p>
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">A lab that lives in your browser</h2>
+            <p className="text-slate-400 text-lg mb-8 leading-relaxed">
+              Experience the power of a world-class chemistry lab without the overhead. Our virtual environment combines physical accuracy with digital speed.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-6">
+              {labTools.map((tool, i) => (
+                <div key={i} className="flex gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center">
+                    <tool.icon className="w-5 h-5 text-cyan-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-bold mb-1">{tool.title}</h4>
+                    <p className="text-slate-500 text-sm">{tool.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ delay: 0.2 }}
+            className="relative"
+          >
+            <div className="glass-card rounded-2xl border border-[#1E2A45] p-2 bg-[#0A0E1A]/60 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)]">
+              <img 
+                src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=1200" 
+                alt="Lab Interface" 
+                className="rounded-xl w-full"
+              />
+              <div className="absolute -bottom-6 -left-6 bg-[#0F1629] border border-[#1E2A45] p-4 rounded-xl shadow-xl hidden sm:block">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                  <span className="text-white font-mono text-sm">Simulation Active: Aspirin Synthesis</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TeamQuotes() {
+  const quotes = [
+    { name: 'Dr. Nikita Abraham', role: 'Structural Biologist', text: 'RO Research Lab has transformed how we visualize molecule interactions. It\'s a game-changer for speed.' },
+    { name: 'Dr. Kat Bay', role: 'Curriculum Designer', text: 'The interface makes complex chemistry accessible. Students learn 2x faster in this virtual environment.' },
+    { name: 'Kevin Halligan', role: 'Strategy Director', text: 'We are bridging the gap between computational power and practical laboratory application.' }
+  ];
+
+  return (
+    <section className="py-24 bg-[#0A0E1A]">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold text-white mb-4">Hear From Our Team</h2>
+          <p className="text-slate-400">Leading the intersection of science and computation</p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8">
+          {quotes.map((quote, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ y: -5 }}
+              className="p-8 rounded-2xl bg-[#080C18] border border-[#1E2A45] relative"
+            >
+              <div className="text-cyan-500 text-4xl font-serif absolute top-4 left-4 opacity-20">"</div>
+              <p className="text-slate-300 mb-6 italic relative z-10">{quote.text}</p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center font-bold text-white">
+                  {quote.name[0]}
+                </div>
+                <div>
+                  <h4 className="text-white font-bold text-sm">{quote.name}</h4>
+                  <p className="text-slate-500 text-xs">{quote.role}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ForResearchers() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
@@ -608,16 +714,20 @@ export default function Landing() {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-[#0A0E1A]">
+    <div className="bg-[#0A0E1A] overflow-x-hidden">
       <LandingNav />
       <AboutSubNav />
-      <Hero navigate={navigate} />
-      <PlatformPillars navigate={navigate} />
-      <Solutions navigate={navigate} />
-      <TechStrip />
-      <ForResearchers />
-      <CTA navigate={navigate} />
-      <Footer />
+      <div className="pt-[64px] sm:pt-[64px]">
+        <Hero navigate={navigate} />
+        <PlatformPillars navigate={navigate} />
+        <LabPreview />
+        <Solutions navigate={navigate} />
+        <TechStrip />
+        <ForResearchers />
+        <TeamQuotes />
+        <CTA navigate={navigate} />
+        <Footer />
+      </div>
     </div>
   );
 }

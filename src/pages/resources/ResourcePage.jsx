@@ -27,7 +27,7 @@ export default function ResourcePage() {
         <div className="min-h-screen bg-[#0A0E1A] text-white">
             <LandingNav />
             <ResourcesSubNav />
-            <div className="pt-[128px]" />
+            <div className="pt-[124px]" />
 
             {/* ── HERO ─────────────────────────────────────── */}
             <section className={`relative h-[50vh] flex items-center overflow-hidden ${!pageData.hasBg ? 'bg-gradient-to-br from-[#0A0E1A] to-[#141B2D]' : ''}`}>
@@ -42,16 +42,16 @@ export default function ResourcePage() {
                         />
                     )}
                 </div>
-                <div className="max-w-7xl mx-auto px-6 relative z-20 w-full">
+                <div className="max-w-7xl mx-auto px-6 relative z-20 w-full pt-20 lg:pt-0">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="max-w-2xl"
+                        className="max-w-2xl text-center lg:text-left mx-auto lg:mx-0"
                     >
                         <p className="text-cyan-400 text-xs font-bold uppercase tracking-[0.2em] mb-4">Resources</p>
-                        <h1 className="text-6xl font-bold text-white mb-6 tracking-tight">{pageData.title}</h1>
-                        <p className="text-xl text-slate-300 leading-relaxed">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">{pageData.title}</h1>
+                        <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed">
                             {pageData.desc}
                         </p>
                     </motion.div>

@@ -120,7 +120,7 @@ export default function Careers() {
         <div className="min-h-screen bg-[#0A0E1A] text-white">
             <LandingNav />
             <AboutSubNav />
-            <div className="pt-[128px]" />
+            <div className="pt-[124px]" />
 
             {/* Hero */}
             <section className="relative h-[60vh] flex items-center overflow-hidden">
@@ -133,20 +133,20 @@ export default function Careers() {
                     />
                 </div>
 
-                <div className="max-w-7xl mx-auto px-6 relative z-20 w-full">
+                <div className="max-w-7xl mx-auto px-6 relative z-20 w-full pt-20 lg:pt-0">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="max-w-2xl"
+                        className="max-w-2xl text-center lg:text-left mx-auto lg:mx-0"
                     >
-                        <h1 className="text-7xl font-bold text-white mb-6 tracking-tight">Join our team</h1>
-                        <p className="text-xl text-slate-300 leading-relaxed mb-10">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight">Join our team</h1>
+                        <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed mb-10">
                             RO Research Lab's diverse global team is united by a common mission: to improve human health and quality of life by transforming the way therapeutics and materials are discovered. We've created the leading computational platform for molecular discovery, but we're not stopping there. Join us for what's next.
                         </p>
                         <button
                             onClick={() => document.getElementById('open-positions').scrollIntoView({ behavior: 'smooth' })}
-                            className="px-8 py-4 bg-cyan-600 hover:bg-cyan-500 rounded-lg font-bold text-white flex items-center gap-3 transition-all"
+                            className="px-6 sm:px-8 py-3 sm:py-4 bg-cyan-600 hover:bg-cyan-500 rounded-lg font-bold text-white flex items-center gap-3 transition-all mx-auto lg:mx-0"
                         >
                             VIEW OPEN POSITIONS <ChevronRight className="w-5 h-5" />
                         </button>

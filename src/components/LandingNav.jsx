@@ -52,7 +52,12 @@ function PlatformDropdown({ navigate, onClose }) {
             {tools.map((tool, i) => (
               <button
                 key={i}
-                onClick={() => { navigate(tool.path); onClose(); }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  navigate(tool.path);
+                  onClose();
+                }}
                 className="flex items-start gap-3 w-full text-left group"
               >
                 <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
@@ -139,7 +144,12 @@ function SolutionsDropdown({ navigate, onClose }) {
             {byUser.map((item, i) => (
               <button
                 key={i}
-                onClick={() => { navigate(item.path); onClose(); }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  navigate(item.path);
+                  onClose();
+                }}
                 className="flex items-start gap-3 w-full text-left group"
               >
                 <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center group-hover:bg-purple-500/20 transition-colors">
@@ -226,36 +236,24 @@ function AboutDropdown({ navigate, onClose }) {
     <div className="bg-[#0F1629] border border-[#1E2A45] rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.5)] p-4 min-w-[320px]">
       <div className="space-y-2">
         {items.map((item, i) => (
-          item.href ? (
-            <a
-              key={i}
-              href={item.href}
-              onClick={() => onClose()}
-              className="flex items-center gap-3 p-3 rounded-xl hover:bg-[#141B2D] transition-colors group"
-            >
-              <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center group-hover:bg-slate-700 transition-colors">
-                <item.icon className="w-5 h-5 text-slate-400 group-hover:text-white transition-colors" />
-              </div>
-              <div>
-                <p className="text-white font-medium text-sm">{item.title}</p>
-                <p className="text-slate-500 text-xs">{item.desc}</p>
-              </div>
-            </a>
-          ) : (
-            <button
-              key={i}
-              onClick={() => { navigate(item.path); onClose(); }}
-              className="flex items-center gap-3 p-3 rounded-xl hover:bg-[#141B2D] transition-colors group w-full text-left"
-            >
-              <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center group-hover:bg-slate-700 transition-colors">
-                <item.icon className="w-5 h-5 text-slate-400 group-hover:text-white transition-colors" />
-              </div>
-              <div>
-                <p className="text-white font-medium text-sm">{item.title}</p>
-                <p className="text-slate-500 text-xs">{item.desc}</p>
-              </div>
-            </button>
-          )
+          <button
+            key={i}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              navigate(item.path);
+              onClose();
+            }}
+            className="flex items-center gap-3 p-3 rounded-xl hover:bg-[#141B2D] transition-colors group w-full text-left"
+          >
+            <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center group-hover:bg-slate-700 transition-colors">
+              <item.icon className="w-5 h-5 text-slate-400 group-hover:text-white transition-colors" />
+            </div>
+            <div>
+              <p className="text-white font-medium text-sm">{item.title}</p>
+              <p className="text-slate-500 text-xs">{item.desc}</p>
+            </div>
+          </button>
         ))}
       </div>
     </div>
@@ -331,12 +329,7 @@ export default function LandingNav() {
             <div className="hidden md:flex items-center gap-8">
               <NavItem label="Platform" dropdown={PlatformDropdown} navigate={navigate} />
               <NavItem label="Solutions" dropdown={SolutionsDropdown} navigate={navigate} />
-              <button 
-                onClick={() => navigate('/company')}
-                className="text-slate-400 hover:text-white transition-colors text-sm font-medium"
-              >
-                Company
-              </button>
+              <NavItem label="About" dropdown={AboutDropdown} navigate={navigate} />
               <NavItem label="Resources" dropdown={ResourcesDropdown} navigate={navigate} />
             </div>
 

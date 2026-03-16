@@ -48,23 +48,23 @@ export default function Team() {
         <div className="min-h-screen bg-[#0A0E1A] text-white">
             <LandingNav />
             <AboutSubNav />
-            <div className="pt-[128px]" />
+            <div className="pt-[124px]" />
 
             {/* ── HERO without image ─────────────────────────────────────── */}
             <section className="relative h-[60vh] flex items-center overflow-hidden bg-gradient-to-r from-[#0A0E1A] to-[#141B2D]">
                 <div className="absolute inset-0 z-0">
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0A0E1A] via-transparent to-transparent z-10" />
                 </div>
-                <div className="max-w-7xl mx-auto px-6 relative z-20 w-full">
+                <div className="max-w-7xl mx-auto px-6 relative z-20 w-full pt-20 lg:pt-0">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="max-w-2xl"
+                        className="max-w-2xl text-center lg:text-left mx-auto lg:mx-0"
                     >
                         <p className="text-cyan-400 text-xs font-bold uppercase tracking-[0.2em] mb-4">Our People</p>
-                        <h1 className="text-7xl font-bold text-white mb-6 tracking-tight">Meet our people</h1>
-                        <p className="text-xl text-slate-300 leading-relaxed">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight">Meet our people</h1>
+                        <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed">
                             The teams and visionaries building the future of accessible computational research.
                         </p>
                     </motion.div>
@@ -74,7 +74,7 @@ export default function Team() {
             {/* ── TABS — sticky under content ─────────────────────────── */}
             <section
                 className="border-b border-slate-200 sticky z-30 backdrop-blur-md"
-                style={{ top: '128px', background: 'rgba(243,246,255,0.97)' }}
+                style={{ top: '124px', background: 'rgba(243,246,255,0.97)' }}
             >
                 <div className="max-w-7xl mx-auto px-6 flex items-center gap-8 overflow-x-auto hide-scrollbar">
                     {tabs.map(tab => (

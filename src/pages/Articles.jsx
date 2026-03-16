@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Clock, FileText, Beaker, BookOpen, Newspaper } from 'lucide-react';
+import LandingNav from '../components/LandingNav';
 
 const categories = [
   { id: 'all', label: 'All' },
@@ -91,8 +92,9 @@ export default function Articles() {
 
   return (
     <div className="min-h-screen bg-[#0A0E1A] text-white">
+      <LandingNav />
       {/* Header */}
-      <section className="pt-32 sm:pt-36 md:pt-40 pb-12 sm:pb-16">
+      <section className="pt-[104px] sm:pt-[104px] pb-12 sm:pb-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
