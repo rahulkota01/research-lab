@@ -10,12 +10,14 @@ import Settings from './pages/Settings';
 import Landing from './pages/Landing';
 import Articles from './pages/Articles';
 import Company from './pages/Company';
+import Platform from './pages/Platform';
+import Solutions from './pages/Solutions';
+import Resources from './pages/Resources';
 import AboutUs from './pages/about/AboutUs';
 import Team from './pages/about/Team';
 import Careers from './pages/about/Careers';
 import Investors from './pages/about/Investors';
 import Press from './pages/about/Press';
-import ResourcePage from './pages/resources/ResourcePage';
 
 // App Layout wrapper for portal routes
 function AppLayout() {
@@ -34,13 +36,14 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/articles" element={<Articles />} />
         <Route path="/company" element={<Company />} />
+        <Route path="/platform" element={<Platform />} />
+        <Route path="/solutions" element={<Solutions />} />
+        <Route path="/resources" element={<Resources />} />
         <Route path="/about" element={<AboutUs />} />
-        <Route path="/about/team" element={<Team />} />
-        <Route path="/about/careers" element={<Careers />} />
-        <Route path="/about/investors" element={<Investors />} />
-        <Route path="/about/press" element={<Press />} />
-        <Route path="/resources" element={<ResourcePage />} />
-        <Route path="/resources/:slug" element={<ResourcePage />} />
+        <Route path="/team" element={<Team />} />
+        <Route path="/careers" element={<Careers />} />
+        <Route path="/investors" element={<Investors />} />
+        <Route path="/press-releases" element={<Press />} />
 
         {/* App/Portal Routes */}
         <Route path="/app" element={<AppLayout />}>

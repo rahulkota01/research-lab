@@ -585,9 +585,11 @@ function Footer() {
             <h4 className="text-white font-semibold mb-4">About</h4>
             <ul className="space-y-2">
               <li><Link to="/company" className={linkClass}>Company</Link></li>
-              <li><a href="https://roecosystem.in" target="_blank" rel="noopener noreferrer" className={linkClass}>RO Ecosystem</a></li>
-              <li><a href="mailto:orchestration.ro@gmail.com" className={linkClass}>Contact</a></li>
-              <li><Link to="/about" className={linkClass}>Roadmap</Link></li>
+              <li><Link to="/about" className={linkClass}>About Us</Link></li>
+              <li><Link to="/team" className={linkClass}>Team</Link></li>
+              <li><Link to="/careers" className={linkClass}>Careers</Link></li>
+              <li><Link to="/investors" className={linkClass}>Investors</Link></li>
+              <li><Link to="/press-releases" className={linkClass}>Press Releases</Link></li>
             </ul>
           </div>
         </div>

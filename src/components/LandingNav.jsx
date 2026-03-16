@@ -216,10 +216,10 @@ function ResourcesDropdown({ navigate, onClose }) {
 function AboutDropdown({ navigate, onClose }) {
   const items = [
     { icon: Rocket, title: 'About RO Ecosystem', desc: 'Our mission, principles and vision', path: '/about' },
-    { icon: User, title: 'Team', desc: 'Leadership, Board & Advisors', path: '/about/team' },
-    { icon: Briefcase, title: 'Careers', desc: 'Join our growing team', path: '/about/careers' },
-    { icon: Map, title: 'Investors & Partners', desc: 'Investment opportunities and partnerships', path: '/about/investors' },
-    { icon: FileText, title: 'Press Releases', desc: 'Latest news and announcements', path: '/about/press' }
+    { icon: User, title: 'Team', desc: 'Leadership, Board & Advisors', path: '/team' },
+    { icon: Briefcase, title: 'Careers', desc: 'Join our growing team', path: '/careers' },
+    { icon: Map, title: 'Investors & Partners', desc: 'Investment opportunities and partnerships', path: '/investors' },
+    { icon: FileText, title: 'Press Releases', desc: 'Latest news and announcements', path: '/press-releases' }
   ];
 
   return (
@@ -388,12 +388,14 @@ export default function LandingNav() {
             >
               <div className="space-y-2">
                 {[
-                  { label: 'Platform', path: '/app/library' },
-                  { label: 'Solutions', path: '/app/bench' },
+                  { label: 'Platform', path: '/platform' },
+                  { label: 'Solutions', path: '/solutions' },
                   { label: 'Company', path: '/company' },
                   { label: 'About', path: '/about' },
-                  { label: 'Team', path: '/about/team' },
-                  { label: 'Careers', path: '/about/careers' },
+                  { label: 'Team', path: '/team' },
+                  { label: 'Careers', path: '/careers' },
+                  { label: 'Investors', path: '/investors' },
+                  { label: 'Press Releases', path: '/press-releases' },
                   { label: 'Resources', path: '/resources' }
                 ].map((link) => (
                   <button
