@@ -331,6 +331,12 @@ export default function LandingNav() {
             <div className="hidden md:flex items-center gap-8">
               <NavItem label="Platform" dropdown={PlatformDropdown} navigate={navigate} />
               <NavItem label="Solutions" dropdown={SolutionsDropdown} navigate={navigate} />
+              <button 
+                onClick={() => navigate('/company')}
+                className="text-slate-400 hover:text-white transition-colors text-sm font-medium"
+              >
+                Company
+              </button>
               <NavItem label="Resources" dropdown={ResourcesDropdown} navigate={navigate} />
             </div>
 
@@ -384,9 +390,11 @@ export default function LandingNav() {
                 {[
                   { label: 'Platform', path: '/app/library' },
                   { label: 'Solutions', path: '/app/bench' },
-                  { label: 'Research', path: '/about' },
+                  { label: 'Company', path: '/company' },
                   { label: 'About', path: '/about' },
-                  { label: 'Careers', path: '/about/careers' }
+                  { label: 'Team', path: '/about/team' },
+                  { label: 'Careers', path: '/about/careers' },
+                  { label: 'Resources', path: '/resources' }
                 ].map((link) => (
                   <button
                     key={link.label}

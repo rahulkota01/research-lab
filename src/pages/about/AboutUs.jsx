@@ -42,7 +42,7 @@ export default function AboutUs() {
             <div className="pt-[128px]" />
 
             {/* ── HERO with image ─────────────────────────────────────── */}
-            <section className="relative h-[60vh] flex items-center overflow-hidden">
+            <section className="relative h-[50vh] sm:h-[60vh] flex items-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <div className="absolute inset-0 bg-gradient-to-r from-[#0A0E1A] via-[#0A0E1A]/75 to-transparent z-10" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0A0E1A]/60 via-transparent to-transparent z-10" />
@@ -52,16 +52,16 @@ export default function AboutUs() {
                         className="w-full h-full object-cover opacity-70"
                     />
                 </div>
-                <div className="max-w-7xl mx-auto px-6 relative z-20 w-full">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-20 w-full">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                         className="max-w-2xl"
                     >
-                        <p className="text-cyan-400 text-xs font-bold uppercase tracking-[0.2em] mb-4">About RO Research Lab</p>
-                        <h1 className="text-7xl font-bold text-white mb-6 tracking-tight">We are RO Ecosystem</h1>
-                        <p className="text-xl text-slate-300 leading-relaxed">
+                        <p className="text-cyan-400 text-xs sm:text-sm font-bold uppercase tracking-[0.2em] mb-3 sm:mb-4">About RO Research Lab</p>
+                        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 tracking-tight">We are RO Ecosystem</h1>
+                        <p className="text-base sm:text-lg lg:text-xl text-slate-300 leading-relaxed">
                             A digital research environment designed to explore the intersection of biology, computation, and artificial intelligence.
                         </p>
                     </motion.div>
@@ -69,13 +69,13 @@ export default function AboutUs() {
             </section>
 
             {/* ── MISSION — Light Section ──────────────────────────────── */}
-            <section className="py-24" style={{ background: '#F3F6FF' }}>
-                <div className="max-w-7xl mx-auto px-6">
+            <section className="py-12 sm:py-16 lg:py-24 bg-[#F3F6FF]">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
                     <div className="grid lg:grid-cols-2 gap-16 items-start">
                         {/* Left — Mission text */}
                         <motion.div {...fade}>
-                            <h2 className="text-4xl font-bold text-slate-900 mb-8 leading-tight">Our Mission</h2>
-                            <div className="space-y-5 text-slate-600 text-lg leading-[1.8]">
+                            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 sm:mb-6 sm:leading-tight">Our Mission</h2>
+                            <div className="space-y-3 sm:space-y-4 sm:text-slate-600 text-sm sm:text-base leading-relaxed sm:leading-[1.8]">
                                 <p>
                                     RO Research Lab is a digital research environment designed to explore the intersection of biology, computation, and artificial intelligence. The platform aims to support modern scientific investigation by providing intelligent tools that help researchers analyze data, explore hypotheses, and accelerate discovery through computational reasoning.
                                 </p>
@@ -86,9 +86,9 @@ export default function AboutUs() {
                                     RO Research Lab operates with a simple vision: to create a space where scientific research meets computational reasoning, enabling the next generation of discovery-driven technologies.
                                 </p>
                             </div>
-                            <div className="flex flex-wrap gap-2 mt-8">
+                            <div className="flex flex-wrap gap-2 mt-6 sm:mt-8">
                                 {techBadges.map((t, i) => (
-                                    <span key={i} className="px-4 py-2 bg-white border border-slate-200 rounded-lg text-slate-700 text-sm font-medium shadow-sm">
+                                    <span key={i} className="px-3 sm:px-4 py-1.5 sm:py-2 bg-white border border-slate-200 rounded-lg text-slate-700 text-xs sm:text-sm font-medium shadow-sm">
                                         {t}
                                     </span>
                                 ))}
@@ -96,14 +96,14 @@ export default function AboutUs() {
                         </motion.div>
 
                         {/* Right — Principle cards */}
-                        <motion.div {...fade} transition={{ ...fade.transition, delay: 0.15 }} className="space-y-5">
+                        <motion.div {...fade} transition={{ ...fade.transition, delay: 0.15 }} className="space-y-3 sm:space-y-5">
                             {principles.map((p, i) => (
-                                <div key={i} className={`bg-white border-l-4 ${p.color} rounded-xl p-7 shadow-sm`}>
-                                    <div className="flex items-center gap-3 mb-3">
-                                        <span className="text-2xl">{p.icon}</span>
-                                        <h3 className="text-slate-900 font-bold text-lg">{p.title}</h3>
+                                <div key={i} className={`bg-white border-l-4 ${p.color} rounded-xl p-4 sm:p-6 sm:shadow-sm`}>
+                                    <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                                        <span className="text-xl sm:text-2xl">{p.icon}</span>
+                                        <h3 className="text-slate-900 font-bold text-base sm:text-lg">{p.title}</h3>
                                     </div>
-                                    <p className="text-slate-600 text-sm leading-relaxed">{p.text}</p>
+                                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">{p.text}</p>
                                 </div>
                             ))}
                         </motion.div>
@@ -112,18 +112,18 @@ export default function AboutUs() {
             </section>
 
             {/* ── AT A GLANCE — Dark Section ──────────────────────────── */}
-            <section className="bg-[#080C18] py-20">
-                <div className="max-w-7xl mx-auto px-6">
-                    <motion.div {...fade} className="text-center mb-14">
-                        <h2 className="text-3xl font-bold text-white mb-3">RO Ecosystem at a Glance</h2>
-                        <p className="text-slate-400">Key numbers that define our platform</p>
+            <section className="bg-[#080C18] py-12 sm:py-16 lg:py-20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                    <motion.div {...fade} className="text-center mb-10 sm:mb-12 lg:mb-14">
+                        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-2 sm:mb-3">RO Ecosystem at a Glance</h2>
+                        <p className="text-slate-400 text-sm sm:text-base">Key numbers that define our platform</p>
                     </motion.div>
-                    <motion.div {...fade} transition={{ ...fade.transition, delay: 0.1 }} className="grid md:grid-cols-3 gap-6">
+                    <motion.div {...fade} transition={{ ...fade.transition, delay: 0.1 }} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
                         {stats.map((s, i) => (
-                            <div key={i} className="bg-[#141B2D] border border-[#1E2A45] rounded-xl p-10 text-center">
-                                <span className="text-4xl mb-4 block">{s.icon}</span>
-                                <div className="text-4xl font-bold text-cyan-400 mb-2">{s.value}</div>
-                                <div className="text-slate-500 text-sm">{s.label}</div>
+                            <div key={i} className="bg-[#141B2D] border border-[#1E2A45] rounded-xl p-6 sm:p-8 lg:p-10 text-center">
+                                <span className="text-3xl sm:text-4xl mb-3 sm:mb-4 block">{s.icon}</span>
+                                <div className="text-3xl sm:text-4xl font-bold text-cyan-400 mb-2">{s.value}</div>
+                                <div className="text-slate-500 text-xs sm:text-sm">{s.label}</div>
                             </div>
                         ))}
                     </motion.div>
@@ -131,11 +131,11 @@ export default function AboutUs() {
             </section>
 
             {/* ── CORE PRINCIPLES — Light Section ─────────────────────── */}
-            <section className="py-24" style={{ background: '#F3F6FF' }}>
-                <div className="max-w-7xl mx-auto px-6">
-                    <motion.div {...fade} className="mb-14">
-                        <h2 className="text-4xl font-bold text-slate-900 mb-3">Our Core Principles</h2>
-                        <p className="text-slate-600">The values that guide every decision at RO Ecosystem</p>
+            <section className="py-12 sm:py-16 lg:py-24 bg-[#F3F6FF]">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                    <motion.div {...fade} className="mb-8 sm:mb-10 lg:mb-12">
+                        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mb-2 sm:mb-3">Our Core Principles</h2>
+                        <p className="text-slate-600 text-sm sm:text-base">The values that guide every decision at RO Ecosystem</p>
                     </motion.div>
 
                     <div className="grid lg:grid-cols-2 gap-16 items-start">

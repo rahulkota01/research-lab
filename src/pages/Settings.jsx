@@ -9,22 +9,22 @@ function InfoModal({ isOpen, onClose }) {
 
     return (
         <AnimatePresence>
-            <motion.div 
+            <motion.div
                 className="fixed inset-0 z-50 flex items-center justify-center p-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
             >
                 {/* Backdrop */}
-                <motion.div 
+                <motion.div
                     className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"
                     onClick={onClose}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                 />
-                
+
                 {/* Modal */}
-                <motion.div 
+                <motion.div
                     className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-hidden"
                     initial={{ scale: 0.9, opacity: 0, y: 20 }}
                     animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ function InfoModal({ isOpen, onClose }) {
                                 </div>
                                 <h2 className="text-2xl font-bold">About RO Virtual Lab</h2>
                             </div>
-                            <button 
+                            <button
                                 onClick={onClose}
                                 className="p-2 hover:bg-white/20 rounded-lg transition-colors"
                             >
@@ -59,8 +59,8 @@ function InfoModal({ isOpen, onClose }) {
                                     What is RO Virtual Research Lab?
                                 </h3>
                                 <p className="text-slate-600 leading-relaxed">
-                                    RO Virtual Research Lab is a cutting-edge computational platform designed for pharmaceutical 
-                                    and chemical research. It enables researchers to simulate drug formulations, predict stability, 
+                                    RO Virtual Research Lab is a cutting-edge computational platform designed for pharmaceutical
+                                    and chemical research. It enables researchers to simulate drug formulations, predict stability,
                                     and analyze compatibility between ingredients before physical prototyping.
                                 </p>
                             </section>
@@ -98,10 +98,10 @@ function InfoModal({ isOpen, onClose }) {
                                     Important Disclaimer
                                 </h3>
                                 <p className="text-amber-700 text-sm leading-relaxed">
-                                    The simulations and predictions provided by this platform are for research and educational 
-                                    purposes only. Results should not be used as the sole basis for clinical decisions or 
-                                    regulatory submissions. Always validate computational predictions with appropriate 
-                                    laboratory testing and consult qualified professionals before proceeding with any 
+                                    The simulations and predictions provided by this platform are for research and educational
+                                    purposes only. Results should not be used as the sole basis for clinical decisions or
+                                    regulatory submissions. Always validate computational predictions with appropriate
+                                    laboratory testing and consult qualified professionals before proceeding with any
                                     formulation development.
                                 </p>
                             </section>
@@ -110,8 +110,8 @@ function InfoModal({ isOpen, onClose }) {
                             <section className="bg-slate-50 rounded-xl p-4">
                                 <h3 className="text-lg font-bold text-slate-800 mb-3">Terms of Use</h3>
                                 <p className="text-slate-600 text-sm leading-relaxed">
-                                    By using this platform, you agree to use it responsibly for legitimate research purposes. 
-                                    All data and simulations are stored securely. We respect your privacy and do not share 
+                                    By using this platform, you agree to use it responsibly for legitimate research purposes.
+                                    All data and simulations are stored securely. We respect your privacy and do not share
                                     your research data with third parties without consent.
                                 </p>
                             </section>
@@ -139,7 +139,7 @@ export default function Profile() {
     const [showInfo, setShowInfo] = useState(false);
 
     return (
-        <motion.div 
+        <motion.div
             className="max-w-4xl space-y-8 pb-10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -165,7 +165,7 @@ export default function Profile() {
                         <Info className="w-4 h-4" />
                         <span>About Lab</span>
                     </motion.button>
-                    
+
                     {/* Settings Icon */}
                     <motion.button
                         className="p-2.5 bg-primary/10 text-primary rounded-xl hover:bg-primary hover:text-white transition-colors"
@@ -186,9 +186,9 @@ export default function Profile() {
                             <div className="w-24 h-24 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full border-2 border-primary/30 flex items-center justify-center">
                                 <User className="w-12 h-12 text-primary" />
                             </div>
-                            <motion.div 
+                            <motion.div
                                 className="w-5 h-5 bg-secondary rounded-full border-2 border-white absolute bottom-1 right-1"
-                                animate={{ 
+                                animate={{
                                     boxShadow: ['0 0 0 0 rgba(0,201,167,0.4)', '0 0 0 8px rgba(0,201,167,0)']
                                 }}
                                 transition={{ duration: 2, repeat: Infinity }}
@@ -308,7 +308,7 @@ export default function Profile() {
                     </GlassCard>
 
                     <div className="flex justify-end pt-2">
-                        <motion.button 
+                        <motion.button
                             className="bg-gradient-to-r from-primary to-primary-light text-white px-8 py-3 rounded-xl text-sm font-bold shadow-lg shadow-primary/25 hover:shadow-xl transition-all"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}

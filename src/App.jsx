@@ -9,6 +9,7 @@ import ResearchNotebook from './pages/ResearchNotebook';
 import Settings from './pages/Settings';
 import Landing from './pages/Landing';
 import Articles from './pages/Articles';
+import Company from './pages/Company';
 import AboutUs from './pages/about/AboutUs';
 import Team from './pages/about/Team';
 import Careers from './pages/about/Careers';
@@ -32,6 +33,7 @@ function App() {
         {/* Public Routes */}
         <Route path="/" element={<Landing />} />
         <Route path="/articles" element={<Articles />} />
+        <Route path="/company" element={<Company />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/about/team" element={<Team />} />
         <Route path="/about/careers" element={<Careers />} />

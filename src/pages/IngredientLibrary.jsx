@@ -402,13 +402,13 @@ function CompoundCard({ item, onSimulate, onAddToBench }) {
       className="glass-card rounded-2xl border border-[#1E2A45] overflow-hidden group"
     >
       {/* Molecule Image */}
-      <div className="relative bg-gradient-to-br from-[#0A0E1A] to-[#141B2D] p-4 flex items-center justify-center h-48 border-b border-[#1E2A45]">
+      <div className="relative bg-gradient-to-br from-[#0A0E1A] to-[#141B2D] p-3 sm:p-4 flex items-center justify-center h-40 sm:h-48 border-b border-[#1E2A45]">
         {/* 2D/3D/Photo Toggle */}
-        <div className="absolute top-3 left-3 flex gap-1 z-10">
+        <div className="absolute top-2 left-2 flex gap-1 z-10">
           <button
             onClick={() => setViewMode('2d')}
             title="Structural Formula"
-            className={`px-2.5 py-1 text-[10px] font-bold rounded-full transition-all duration-200 ${
+            className={`px-2 py-0.5 sm:px-2.5 sm:py-1 text-[9px] sm:text-[10px] font-bold rounded-full transition-all duration-200 ${
               viewMode === '2d'
                 ? 'bg-cyan-500 text-white shadow-md'
                 : 'bg-[#141B2D]/90 text-slate-400 border border-[#1E2A45] hover:border-cyan-500/50'
@@ -419,7 +419,7 @@ function CompoundCard({ item, onSimulate, onAddToBench }) {
           <button
             onClick={() => setViewMode('3d')}
             title="3D Conformer (PubChem)"
-            className={`px-2.5 py-1 text-[10px] font-bold rounded-full transition-all duration-200 ${
+            className={`px-2 py-0.5 sm:px-2.5 sm:py-1 text-[9px] sm:text-[10px] font-bold rounded-full transition-all duration-200 ${
               viewMode === '3d'
                 ? 'bg-cyan-500 text-white shadow-md'
                 : 'bg-[#141B2D]/90 text-slate-400 border border-[#1E2A45] hover:border-cyan-500/50'
@@ -430,7 +430,7 @@ function CompoundCard({ item, onSimulate, onAddToBench }) {
           <button
             onClick={() => setViewMode('photo')}
             title="Real Compound Photo"
-            className={`px-2.5 py-1 text-[10px] font-bold rounded-full transition-all duration-200 ${
+            className={`px-2 py-0.5 sm:px-2.5 sm:py-1 text-[9px] sm:text-[10px] font-bold rounded-full transition-all duration-200 ${
               viewMode === 'photo'
                 ? 'bg-cyan-500 text-white shadow-md'
                 : 'bg-[#141B2D]/90 text-slate-400 border border-[#1E2A45] hover:border-cyan-500/50'
@@ -446,12 +446,12 @@ function CompoundCard({ item, onSimulate, onAddToBench }) {
               <img
                 src={getPubChemImageUrl(item.cid)}
                 alt={item.name}
-                className="max-h-36 max-w-full object-contain drop-shadow-md"
+                className="max-h-28 sm:max-h-36 max-w-full object-contain drop-shadow-md"
                 onError={() => setImageError(true)}
               />
             ) : (
-              <div className="w-32 h-32 bg-[#141B2D] rounded-xl flex items-center justify-center border border-[#1E2A45]">
-                <Beaker className="w-12 h-12 text-slate-600" />
+              <div className="w-24 h-24 sm:w-32 sm:h-32 bg-[#141B2D] rounded-xl flex items-center justify-center border border-[#1E2A45]">
+                <Beaker className="w-8 h-8 sm:w-12 sm:h-12 text-slate-600" />
               </div>
             )
           ) : viewMode === '3d' ? (
@@ -475,11 +475,11 @@ function CompoundCard({ item, onSimulate, onAddToBench }) {
                 } else {
                   // Beautiful gradient placeholder based on category
                   return (
-                    <div className={`w-full h-full rounded-lg bg-gradient-to-br ${getCategoryGradient()} flex flex-col items-center justify-center p-4 border border-[#1E2A45]`}>
-                      <p className="text-4xl font-bold text-cyan-400 text-center">
+                    <div className={`w-full h-full rounded-lg bg-gradient-to-br ${getCategoryGradient()} flex flex-col items-center justify-center p-2 sm:p-4 border border-[#1E2A45]`}>
+                      <p className="text-2xl sm:text-4xl font-bold text-cyan-400 text-center">
                         {item.formula}
                       </p>
-                      <p className="text-xs text-slate-500 mt-3 text-center">
+                      <p className="text-[10px] sm:text-xs text-slate-500 mt-2 sm:mt-3 text-center px-1">
                         No photo available
                       </p>
                     </div>
@@ -490,68 +490,68 @@ function CompoundCard({ item, onSimulate, onAddToBench }) {
           )}
         </div>
         
-        <span className="absolute top-3 right-3 text-[10px] font-mono px-2 py-1 rounded-full bg-[#141B2D]/80 backdrop-blur text-slate-400 border border-[#1E2A45]">
+        <span className="absolute top-2 right-2 text-[8px] sm:text-[10px] font-mono px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full bg-[#141B2D]/80 backdrop-blur text-slate-400 border border-[#1E2A45]">
           CID: {item.cid}
         </span>
       </div>
 
       {/* Info */}
-      <div className="p-5">
-        <div className="mb-3">
+      <div className="p-3 sm:p-5">
+        <div className="mb-2 sm:mb-3">
           {/* Common name as primary title */}
-          <h3 className="font-bold text-white text-lg line-clamp-1" title={item.commonName}>
+          <h3 className="font-bold text-white text-base sm:text-lg line-clamp-1" title={item.commonName}>
             {item.commonName}
           </h3>
           {/* IUPAC name underneath in grey */}
-          <p className="text-xs text-slate-500 line-clamp-1 mt-0.5" title={item.name}>
+          <p className="text-[10px] sm:text-xs text-slate-500 line-clamp-1 mt-0.5" title={item.name}>
             {item.name}
           </p>
-          <p className="text-sm font-mono text-cyan-400 mt-1">{item.formula}</p>
+          <p className="text-xs sm:text-sm font-mono text-cyan-400 mt-0.5 sm:mt-1">{item.formula}</p>
         </div>
 
-        <div className="grid grid-cols-2 gap-2 mb-3 text-xs">
-          <div className="bg-[#0A0E1A] rounded-lg p-2 border border-[#1E2A45]">
+        <div className="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2 sm:mb-3 text-[10px] sm:text-xs">
+          <div className="bg-[#0A0E1A] rounded-lg p-1.5 sm:p-2 border border-[#1E2A45]">
             <p className="text-slate-500">Mol. Weight</p>
             <p className="font-mono font-semibold text-slate-300">{item.mw}</p>
           </div>
-          <div className="bg-[#0A0E1A] rounded-lg p-2 border border-[#1E2A45]">
+          <div className="bg-[#0A0E1A] rounded-lg p-1.5 sm:p-2 border border-[#1E2A45]">
             <p className="text-slate-500">XLogP</p>
             <p className="font-mono font-semibold text-slate-300">{item.logP}</p>
           </div>
-          <div className="bg-[#0A0E1A] rounded-lg p-2 border border-[#1E2A45]">
+          <div className="bg-[#0A0E1A] rounded-lg p-1.5 sm:p-2 border border-[#1E2A45]">
             <p className="text-slate-500">Exact Mass</p>
             <p className="font-mono font-semibold text-slate-300">{item.exactMass}</p>
           </div>
-          <div className="bg-[#0A0E1A] rounded-lg p-2 border border-[#1E2A45]">
+          <div className="bg-[#0A0E1A] rounded-lg p-1.5 sm:p-2 border border-[#1E2A45]">
             <p className="text-slate-500">Charge</p>
             <p className="font-mono font-semibold text-slate-300">{item.charge}</p>
           </div>
         </div>
 
         {/* SMILES */}
-        <div className="mb-4">
-          <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-1">SMILES</p>
-          <p className="text-xs font-mono text-slate-400 truncate" title={item.fullSmiles}>
+        <div className="mb-2 sm:mb-4">
+          <p className="text-[9px] sm:text-[10px] text-slate-500 uppercase tracking-wider mb-1">SMILES</p>
+          <p className="text-[10px] sm:text-xs font-mono text-slate-400 truncate" title={item.fullSmiles}>
             {item.smiles}
           </p>
         </div>
 
         {/* Actions */}
-        <div className="flex gap-2">
+        <div className="flex gap-1.5 sm:gap-2">
           <motion.button
             onClick={() => onSimulate(item)}
             whileTap={{ scale: 0.97 }}
-            className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:opacity-90 transition-opacity shadow-lg shadow-cyan-500/25"
+            className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:opacity-90 transition-opacity shadow-lg shadow-cyan-500/25"
           >
-            <Play className="w-3.5 h-3.5" />
+            <Play className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
             Simulate
           </motion.button>
           <motion.button
             onClick={() => onAddToBench(item)}
             whileTap={{ scale: 0.97 }}
-            className="flex items-center justify-center gap-1 px-3 py-2.5 rounded-xl text-sm font-semibold text-cyan-400 bg-[#0A0E1A] border-2 border-cyan-500/30 hover:bg-cyan-500/10 hover:border-cyan-500/50 transition-colors"
+            className="flex items-center justify-center gap-1 px-2 sm:px-3 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-cyan-400 bg-[#0A0E1A] border-2 border-cyan-500/30 hover:bg-cyan-500/10 hover:border-cyan-500/50 transition-colors"
           >
-            <Plus className="w-4 h-4" />
+            <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </motion.button>
         </div>
       </div>
@@ -869,7 +869,7 @@ export default function IngredientLibrary() {
   };
 
   return (
-    <div className="space-y-6 relative">
+    <div className="space-y-4 sm:space-y-6 relative">
       {/* Toast Notification */}
       <AnimatePresence>
         {benchNotif && (
@@ -877,7 +877,7 @@ export default function IngredientLibrary() {
             initial={{ opacity: 0, y: -20, x: '50%' }}
             animate={{ opacity: 1, y: 0, x: '50%' }}
             exit={{ opacity: 0, y: -20, x: '50%' }}
-            className="fixed top-6 right-1/2 z-50 bg-emerald-500 text-white px-5 py-3 rounded-2xl shadow-lg font-medium text-sm flex items-center gap-2"
+            className="fixed top-4 sm:top-6 right-1/2 z-50 bg-emerald-500 text-white px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl shadow-lg font-medium text-xs sm:text-sm flex items-center gap-1.5 sm:gap-2 max-w-[90vw]"
           >
             ✅ {benchNotif} added to Lab Bench!
           </motion.div>
@@ -888,28 +888,28 @@ export default function IngredientLibrary() {
       <motion.header 
         initial={{ opacity: 0, y: -10 }} 
         animate={{ opacity: 1, y: 0 }}
-        className="flex items-center justify-between"
+        className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0"
       >
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-white mb-1">
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-1">
             Ingredient Library
           </h1>
-          <p className="text-slate-400">Search PubChem database and run simulations</p>
+          <p className="text-slate-400 text-sm sm:text-base">Search PubChem database and run simulations</p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
           {benchItems.length > 0 && (
             <>
-              <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-2xl px-4 py-2 text-sm text-cyan-400 font-medium">
-                🧪 {benchItems.length} item{benchItems.length > 1 ? 's' : ''} in bench
+              <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-2xl px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm text-cyan-400 font-medium whitespace-nowrap">
+                🧪 {benchItems.length} item{benchItems.length > 1 ? 's' : ''}
               </div>
               <motion.button
                 onClick={() => navigate('/app/bench')}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl text-sm font-semibold hover:opacity-90 transition-all shadow-lg shadow-cyan-500/25"
+                className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl text-xs sm:text-sm font-semibold hover:opacity-90 transition-all shadow-lg shadow-cyan-500/25 whitespace-nowrap"
               >
-                Go to Lab Bench
-                <ArrowRight className="w-4 h-4" />
+                Go to Bench
+                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </motion.button>
             </>
           )}
@@ -918,11 +918,11 @@ export default function IngredientLibrary() {
 
       {/* Search */}
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="relative">
-        <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
+        <div className="absolute inset-y-0 left-0 pl-4 sm:pl-5 flex items-center pointer-events-none">
           {loading ? (
-            <Loader2 className="w-5 h-5 text-cyan-400 animate-spin" />
+            <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400 animate-spin" />
           ) : (
-            <Search className={cn("h-5 w-5 transition-colors", isFocused ? "text-cyan-400" : "text-slate-500")} />
+            <Search className={cn("h-4 w-4 sm:h-5 sm:w-5 transition-colors", isFocused ? "text-cyan-400" : "text-slate-500")} />
           )}
         </div>
         <input
@@ -932,7 +932,7 @@ export default function IngredientLibrary() {
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           className={cn(
-            "block w-full pl-14 pr-5 py-4 rounded-2xl border-2 text-white placeholder-slate-500 bg-[#0F1629] transition-all",
+            "block w-full pl-12 sm:pl-14 pr-4 sm:pr-5 py-3 sm:py-4 rounded-2xl border-2 text-sm sm:text-base text-white placeholder-slate-500 bg-[#0F1629] transition-all",
             isFocused ? "border-cyan-500/50 shadow-lg shadow-cyan-500/10" : "border-[#1E2A45]"
           )}
           placeholder="Search PubChem by compound name..."
@@ -940,7 +940,7 @@ export default function IngredientLibrary() {
       </motion.div>
 
       {/* Filters */}
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap gap-2 sm:gap-3">
         {FILTERS.map((filter) => {
           const Icon = filter.icon;
           return (
@@ -949,13 +949,14 @@ export default function IngredientLibrary() {
               onClick={() => setActiveFilter(filter.id)}
               whileTap={{ scale: 0.95 }}
               className={cn(
-                "flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all border",
+                "flex items-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all border whitespace-nowrap",
                 activeFilter === filter.id
                   ? "bg-cyan-500 text-white border-cyan-500 shadow-lg shadow-cyan-500/25"
                   : "bg-[#0F1629] text-slate-400 border-[#1E2A45] hover:border-cyan-500/50"
               )}
             >
-              <Icon className="w-4 h-4" />{filter.label}
+              <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <span className="hidden xs:inline">{filter.label}</span>
             </motion.button>
           );
         })}
@@ -965,31 +966,31 @@ export default function IngredientLibrary() {
       {searchQuery.length < 2 && featuredCompounds.length > 0 && (
         <div className="flex items-center gap-2">
           <div className="h-px flex-1 bg-[#1E2A45]"></div>
-          <span className="text-sm font-medium text-slate-500">Featured Compounds</span>
+          <span className="text-xs sm:text-sm font-medium text-slate-500 px-2">Featured Compounds</span>
           <div className="h-px flex-1 bg-[#1E2A45]"></div>
         </div>
       )}
 
       {/* Content */}
       {loading ? (
-        <div className="flex flex-col items-center justify-center py-24">
-          <Loader2 className="w-12 h-12 text-cyan-400 animate-spin mb-4" />
-          <p className="text-slate-400">
+        <div className="flex flex-col items-center justify-center py-16 sm:py-24">
+          <Loader2 className="w-8 h-8 sm:w-12 sm:h-12 text-cyan-400 animate-spin mb-3 sm:mb-4" />
+          <p className="text-slate-400 text-xs sm:text-sm text-center px-4">
             {searchQuery.length < 2 ? 'Loading featured compounds...' : 'Searching PubChem...'}
           </p>
         </div>
       ) : displayCompounds.length === 0 ? (
-        <div className="flex flex-col items-center justify-center py-24 text-slate-400">
-          <Beaker className="w-16 h-16 mb-4 opacity-30" />
-          <p className="text-lg font-medium">
+        <div className="flex flex-col items-center justify-center py-16 sm:py-24 text-slate-400">
+          <Beaker className="w-12 h-12 sm:w-16 sm:h-16 mb-3 sm:mb-4 opacity-30" />
+          <p className="text-sm sm:text-lg font-medium text-center px-4">
             {searchQuery.length >= 2 ? 'No compounds found' : 'No featured compounds'}
           </p>
-          <p className="text-sm">
+          <p className="text-xs sm:text-sm text-center px-4 mt-1">
             {searchQuery.length >= 2 ? 'Try a different search term' : 'Something went wrong'}
           </p>
         </div>
       ) : (
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           <AnimatePresence>
             {displayCompounds.map((item) => (
               <CompoundCard 

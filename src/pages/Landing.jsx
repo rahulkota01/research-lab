@@ -135,23 +135,23 @@ function Hero({ navigate }) {
     <section className="relative min-h-screen flex items-center bg-[#0A0E1A] pt-20 overflow-hidden">
       <ParticlesBackground />
 
-      <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
         {/* Left - Text */}
-        <div>
+        <div className="text-center lg:text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/50 text-cyan-400 text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/50 text-cyan-400 text-xs sm:text-sm font-medium mb-4 sm:mb-6 mx-auto lg:mx-0"
           >
             <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
             AI-Powered Virtual Research Platform
           </motion.div>
 
-          <div className="space-y-4 mb-8">
+          <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-6xl md:text-7xl font-bold text-white tracking-tight leading-[1.1]"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white tracking-tight leading-[1.1]"
             >
               Scientific research meets <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">computational reasoning.</span>
             </motion.h1>
@@ -161,7 +161,7 @@ function Hero({ navigate }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-lg text-slate-400 mb-8 max-w-lg"
+            className="text-sm sm:text-base lg:text-lg text-slate-400 mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0"
           >
             RO Research Lab is a digital research environment designed to explore the intersection of biology, computation, and artificial intelligence. We enable the next generation of discovery-driven technologies.
           </motion.p>
@@ -170,13 +170,13 @@ function Hero({ navigate }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="flex flex-wrap gap-4 mb-12"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12"
           >
             <motion.button
               onClick={() => navigate('/app/dashboard')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 rounded-xl font-bold text-white text-base"
+              className="px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-white text-sm sm:text-base w-full sm:w-auto"
               style={{ background: 'linear-gradient(135deg, #00D4FF, #7B2FBE)', boxShadow: '0 0 30px rgba(0,212,255,0.3)' }}
             >
               Enter Research Lab →
@@ -185,7 +185,7 @@ function Hero({ navigate }) {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 rounded-xl font-semibold text-white border border-cyan-500/40 bg-transparent"
+              className="px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold text-white text-sm sm:text-base border border-cyan-500/40 bg-transparent w-full sm:w-auto"
             >
               Watch Platform Demo
             </motion.button>
@@ -196,7 +196,7 @@ function Hero({ navigate }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="grid grid-cols-4 gap-6 pt-8 border-t border-[#1E2A45]"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pt-6 sm:pt-8 border-t border-[#1E2A45]"
           >
             {[
               { value: '100', suffix: 'M+', label: 'Compounds in Database' },
@@ -204,33 +204,29 @@ function Hero({ navigate }) {
               { value: '<5', suffix: 's', label: 'Simulation Speed' },
               { value: 'Free', suffix: '', label: 'To Use' }
             ].map((stat, i) => (
-              <div key={i}>
-                <div className="text-2xl font-bold text-cyan-400">
+              <div key={i} className="text-center lg:text-left">
+                <div className="text-lg sm:text-xl lg:text-2xl font-bold text-cyan-400">
                   {stat.value === 'Free' ? 'Free' : <><AnimatedCounter value={stat.value} />{stat.suffix}</>}
                 </div>
-                <div className="text-xs text-slate-500 mt-1">{stat.label}</div>
+                <div className="text-[10px] sm:text-xs text-slate-500 mt-1">{stat.label}</div>
               </div>
             ))}
           </motion.div>
         </div>
 
         {/* Right - 3D Molecule with Floating Cards */}
-        <div className="relative flex items-center justify-center w-full h-full min-h-[500px]">
+        <div className="relative flex items-center justify-center w-full h-full min-h-[300px] sm:min-h-[400px] lg:min-h-[500px] mt-8 lg:mt-0">
           {/* Radial glow behind molecule */}
           <div
-            className="absolute rounded-full"
+            className="absolute rounded-full w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] lg:w-[400px] lg:h-[400px]"
             style={{
-              width: '400px',
-              height: '400px',
               background: 'radial-gradient(circle, rgba(0,212,255,0.06) 0%, transparent 70%)',
               pointerEvents: 'none'
             }}
           />
 
           {/* 3D Molecule - transparent background */}
-          <div style={{
-            width: '480px',
-            height: '480px',
+          <div className="w-[240px] h-[240px] sm:w-[320px] sm:h-[320px] lg:w-[400px] lg:h-[400px] xl:w-[480px] xl:h-[480px]" style={{
             filter: 'drop-shadow(0 0 30px rgba(0,212,255,0.1))'
           }}>
             <Molecule3DViewer
@@ -241,44 +237,44 @@ function Hero({ navigate }) {
             />
           </div>
 
-          {/* Floating card - top left of molecule */}
+          {/* Floating card - top left of molecule - Hidden on mobile */}
           <motion.div
             animate={{ y: [0, -8, 0] }}
             transition={{ duration: 3, repeat: Infinity }}
-            className="absolute top-8 left-0 bg-[#0F1629]/90 backdrop-blur border border-[#1E2A45] rounded-xl p-3 text-sm"
+            className="hidden sm:block absolute top-4 lg:top-8 left-0 bg-[#0F1629]/90 backdrop-blur border border-[#1E2A45] rounded-xl p-2 lg:p-3 text-xs"
           >
-            <div className="flex items-center gap-2 mb-1">
-              <div className="w-2 h-2 rounded-full bg-cyan-400" />
-              <span className="text-slate-400 text-xs">Real PubChem Data</span>
+            <div className="flex items-center gap-1 lg:gap-2 mb-1">
+              <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-full bg-cyan-400" />
+              <span className="text-slate-400 text-[10px] lg:text-xs">Real PubChem Data</span>
             </div>
-            <div className="text-white font-mono font-bold">CID: 2244 • MW: 180.16</div>
+            <div className="text-white font-mono font-bold text-[10px] lg:text-sm">CID: 2244 • MW: 180.16</div>
           </motion.div>
 
-          {/* Floating card - top right */}
+          {/* Floating card - top right - Hidden on mobile */}
           <motion.div
             animate={{ y: [0, -6, 0] }}
             transition={{ duration: 3.5, repeat: Infinity, delay: 0.5 }}
-            className="absolute top-4 right-0 bg-[#0F1629]/90 backdrop-blur border border-[#1E2A45] rounded-xl p-3 text-sm"
+            className="hidden sm:block absolute top-2 lg:top-4 right-0 bg-[#0F1629]/90 backdrop-blur border border-[#1E2A45] rounded-xl p-2 lg:p-3 text-xs"
           >
-            <div className="text-slate-400 text-xs mb-1">⚗️ Simulation Complete</div>
-            <div className="text-red-400 font-bold text-xs">Status: Decomposing</div>
+            <div className="text-slate-400 text-[10px] lg:text-xs mb-1">⚗️ Simulation Complete</div>
+            <div className="text-red-400 font-bold text-[10px] lg:text-xs">Status: Decomposing</div>
           </motion.div>
 
-          {/* Floating card - bottom right */}
+          {/* Floating card - bottom right - Hidden on mobile */}
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-            className="absolute bottom-8 right-0 bg-[#0F1629]/90 backdrop-blur border border-[#1E2A45] rounded-xl p-3 text-sm"
+            className="hidden sm:block absolute bottom-4 lg:bottom-8 right-0 bg-[#0F1629]/90 backdrop-blur border border-[#1E2A45] rounded-xl p-2 lg:p-3 text-xs"
           >
-            <div className="text-slate-400 text-xs mb-1">🤖 AI Analysis Ready</div>
-            <div className="text-cyan-400 font-bold text-xs">Groq • llama-3.3-70b</div>
+            <div className="text-slate-400 text-[10px] lg:text-xs mb-1">🤖 AI Analysis Ready</div>
+            <div className="text-cyan-400 font-bold text-[10px] lg:text-xs">Groq • llama-3.3-70b</div>
           </motion.div>
 
-          {/* Rotation hint */}
+          {/* Rotation hint - Only visible on desktop */}
           <motion.div
             animate={{ opacity: [0, 1, 0] }}
             transition={{ duration: 2, repeat: Infinity, repeatDelay: 4 }}
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 flex items-center gap-2 text-slate-600 text-xs"
+            className="hidden lg:flex absolute bottom-0 left-1/2 -translate-x-1/2 items-center gap-2 text-slate-600 text-xs"
           >
             <span>←</span>
             <span>Drag to rotate • Scroll to zoom</span>
@@ -301,33 +297,33 @@ function PlatformPillars({ navigate }) {
   ];
 
   return (
-    <section id="platform" className="py-24 bg-[#080C18]">
-      <div className="max-w-6xl mx-auto px-6" ref={ref}>
+    <section id="platform" className="py-12 sm:py-16 lg:py-24 bg-[#080C18]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <p className="text-cyan-400 text-sm uppercase tracking-wider mb-3">The Platform</p>
-          <h2 className="text-4xl font-bold text-white mb-4">Built on Real Science</h2>
-          <p className="text-slate-400">Three core technologies power every simulation</p>
+          <p className="text-cyan-400 text-xs sm:text-sm uppercase tracking-wider mb-3">The Platform</p>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4">Built on Real Science</h2>
+          <p className="text-slate-400 text-sm sm:text-base">Three core technologies power every simulation</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-0 divide-x divide-[#1E2A45]">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-0 divide-y md:divide-x divide-[#1E2A45]">
           {pillars.map((pillar, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: i * 0.1 }}
-              className="px-8 py-4 relative"
+              className="px-6 sm:px-8 py-6 relative"
             >
-              <span className="absolute top-0 left-8 text-7xl font-bold text-slate-800/50 select-none">{pillar.num}</span>
-              <div className="relative z-10">
-                <pillar.icon className="w-12 h-12 text-cyan-400 mb-6" />
-                <h3 className="text-xl font-bold text-white mb-4">{pillar.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-6">{pillar.desc}</p>
-                <button onClick={() => navigate(pillar.path)} className="text-cyan-400 text-sm font-medium hover:text-cyan-300 flex items-center gap-1">
+              <span className="absolute top-0 left-6 sm:left-8 text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-800/50 select-none">{pillar.num}</span>
+              <div className="relative z-10 pt-4">
+                <pillar.icon className="w-10 h-10 sm:w-12 sm:h-12 text-cyan-400 mb-4 sm:mb-6" />
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">{pillar.title}</h3>
+                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">{pillar.desc}</p>
+                <button onClick={() => navigate(pillar.path)} className="text-cyan-400 text-xs sm:text-sm font-medium hover:text-cyan-300 flex items-center gap-1">
                   {pillar.link}
                 </button>
               </div>
@@ -352,25 +348,25 @@ function Solutions({ navigate }) {
   ];
 
   return (
-    <section id="solutions" className="py-24 bg-[#0A0E1A] relative" style={{ backgroundImage: 'linear-gradient(rgba(30,42,69,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(30,42,69,0.3) 1px, transparent 1px)', backgroundSize: '60px 60px' }}>
-      <div className="max-w-6xl mx-auto px-6" ref={ref}>
-        <div className="grid md:grid-cols-5 gap-12">
+    <section id="solutions" className="py-12 sm:py-16 lg:py-24 bg-[#0A0E1A] relative" style={{ backgroundImage: 'linear-gradient(rgba(30,42,69,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(30,42,69,0.3) 1px, transparent 1px)', backgroundSize: '60px 60px' }}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6" ref={ref}>
+        <div className="grid md:grid-cols-5 gap-8 lg:gap-12">
           {/* Left - Sticky */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            className="md:col-span-2 md:sticky md:top-32 md:self-start"
+            className="md:col-span-2 md:sticky md:top-32 md:self-start text-center md:text-left mb-8 md:mb-0"
           >
-            <p className="text-cyan-400 text-sm uppercase tracking-wider mb-3">Solutions</p>
-            <h2 className="text-4xl font-bold text-white mb-4 leading-tight">Everything you need for virtual research</h2>
-            <p className="text-slate-400 mb-8">From compound discovery to experiment simulation — RO Virtual Lab covers the full research workflow.</p>
-            <button onClick={() => navigate('/app/dashboard')} className="text-cyan-400 font-medium hover:text-cyan-300 flex items-center gap-2">
+            <p className="text-cyan-400 text-xs sm:text-sm uppercase tracking-wider mb-3">Solutions</p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4 leading-tight">Everything you need for virtual research</h2>
+            <p className="text-slate-400 text-sm sm:text-base mb-6 sm:mb-8">From compound discovery to experiment simulation — RO Virtual Lab covers the full research workflow.</p>
+            <button onClick={() => navigate('/app/dashboard')} className="text-cyan-400 text-sm sm:text-base font-medium hover:text-cyan-300 flex items-center gap-2 justify-center md:justify-start">
               Explore All Features →
             </button>
           </motion.div>
 
           {/* Right - Cards */}
-          <div className="md:col-span-3 space-y-4">
+          <div className="md:col-span-3 space-y-3 sm:space-y-4">
             {solutions.map((sol, i) => (
               <motion.div
                 key={i}
@@ -378,20 +374,20 @@ function Solutions({ navigate }) {
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: i * 0.1 }}
                 onMouseEnter={() => setActiveCard(i)}
-                className={`p-6 rounded-xl border-l-2 transition-all cursor-pointer ${activeCard === i ? 'border-cyan-500 bg-[#0F1629]' : 'border-slate-700 bg-[#080C18]/50'}`}
+                className={`p-4 sm:p-6 rounded-xl border-l-2 transition-all cursor-pointer ${activeCard === i ? 'border-cyan-500 bg-[#0F1629]' : 'border-slate-700 bg-[#080C18]/50'}`}
               >
                 <div className="flex items-start justify-between mb-2">
-                  <span className="text-cyan-400 text-sm font-mono">{sol.num}</span>
+                  <span className="text-cyan-400 text-xs sm:text-sm font-mono">{sol.num}</span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-1">{sol.title}</h3>
-                <p className="text-cyan-400 text-sm mb-3">{sol.subtitle}</p>
-                <p className="text-slate-400 text-sm mb-4">{sol.desc}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{sol.title}</h3>
+                <p className="text-cyan-400 text-xs sm:text-sm mb-2 sm:mb-3">{sol.subtitle}</p>
+                <p className="text-slate-400 text-xs sm:text-sm mb-3 sm:mb-4">{sol.desc}</p>
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                   {sol.tags.map((tag, j) => (
-                    <span key={j} className="px-2 py-1 bg-[#141B2D] rounded text-xs text-slate-400">{tag}</span>
+                    <span key={j} className="px-2 py-1 bg-[#141B2D] rounded text-[10px] sm:text-xs text-slate-400">{tag}</span>
                   ))}
                 </div>
-                <button onClick={() => navigate(sol.path)} className="text-cyan-400 text-sm hover:text-cyan-300">{sol.link}</button>
+                <button onClick={() => navigate(sol.path)} className="text-cyan-400 text-xs sm:text-sm hover:text-cyan-300">{sol.link}</button>
               </motion.div>
             ))}
           </div>
@@ -588,6 +584,7 @@ function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">About</h4>
             <ul className="space-y-2">
+              <li><Link to="/company" className={linkClass}>Company</Link></li>
               <li><a href="https://roecosystem.in" target="_blank" rel="noopener noreferrer" className={linkClass}>RO Ecosystem</a></li>
               <li><a href="mailto:orchestration.ro@gmail.com" className={linkClass}>Contact</a></li>
               <li><Link to="/about" className={linkClass}>Roadmap</Link></li>
