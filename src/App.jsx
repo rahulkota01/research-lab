@@ -8,7 +8,6 @@ import SimulationResults from './pages/SimulationResults';
 import ResearchNotebook from './pages/ResearchNotebook';
 import Settings from './pages/Settings';
 import Landing from './pages/Landing';
-import Articles from './pages/Articles';
 import Company from './pages/Company';
 import Platform from './pages/Platform';
 import Solutions from './pages/Solutions';
@@ -34,7 +33,6 @@ function App() {
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<Landing />} />
-        <Route path="/articles" element={<Articles />} />
         <Route path="/company" element={<Company />} />
         <Route path="/platform" element={<Platform />} />
         <Route path="/solutions" element={<Solutions />} />
@@ -42,6 +40,7 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/team" element={<Team />} />
         <Route path="/careers" element={<Careers />} />
+        <Route path="/carrers" element={<Navigate to="/careers" replace />} />
         <Route path="/investors" element={<Investors />} />
         <Route path="/press-releases" element={<Press />} />
 

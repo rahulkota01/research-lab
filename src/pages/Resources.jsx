@@ -1,14 +1,25 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { BookOpen, ArrowRight } from 'lucide-react';
+import { BookOpen, X, AlertCircle } from 'lucide-react';
 
 export default function Resources() {
+    const [selectedResource, setSelectedResource] = useState(null);
+
     const fadeUp = {
         initial: { opacity: 0, y: 30 },
         animate: { opacity: 1, y: 0 },
         transition: { duration: 0.6 }
     };
+
+    const resources = [
+        { title: 'Documentation', desc: 'Comprehensive guides for using RO Virtual Lab platform features.', icon: '📚' },
+        { title: 'Video Tutorials', desc: 'Step-by-step video guides for experiments and simulations.', icon: '🎥' },
+        { title: 'Research Papers', desc: 'Published studies using our computational platform.', icon: '📄' },
+        { title: 'FAQ', desc: 'Frequently asked questions and troubleshooting tips.', icon: '❓' },
+        { title: 'Blog', desc: 'Latest updates, features, and research insights.', icon: '✍️' },
+        { title: 'Community', desc: 'Join discussions with other researchers and scientists.', icon: '👥' }
+    ];
 
     return (
         <div className="min-h-screen bg-[#0A0E1A] text-white relative overflow-hidden">
@@ -34,7 +45,6 @@ export default function Resources() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6">
                     <div className="flex items-center justify-between h-16">
                         <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-                            <img src="/favicon.png" alt="RO Virtual Lab" className="w-6 h-6" />
                             <span className="text-sm font-semibold text-white">RO Virtual Lab</span>
                         </Link>
                         
@@ -76,36 +86,20 @@ export default function Resources() {
                     transition={{ delay: 0.1 }}
                     className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8"
                 >
-                    {[
-                        { title: 'Documentation', desc: 'Comprehensive guides for using RO Virtual Lab platform features.', icon: '📚' },
-                        { title: 'Video Tutorials', desc: 'Step-by-step video guides for experiments and simulations.', icon: '🎥' },
-                        { title: 'Research Papers', desc: 'Published studies using our computational platform.', icon: '📄' },
-                        { title: 'FAQ', desc: 'Frequently asked questions and troubleshooting tips.', icon: '❓' },
-                        { title: 'Blog', desc: 'Latest updates, features, and research insights.', icon: '✍️' },
-                        { title: 'Community', desc: 'Join discussions with other researchers and scientists.', icon: '👥' }
-                    ].map((resource, i) => (
-                        <div key={i} className="bg-[#0F1629]/50 backdrop-blur border border-[#1E2A45] rounded-2xl p-6 sm:p-8">
+                    {resources.map((resource, i) => (
+                        <motion.div 
+                            key={i} 
+                            whileHover={{ y: -5, scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            onClick={() => setSelectedResource(resource)}
+                            className="bg-[#0F1629]/50 backdrop-blur border border-[#1E2A45] rounded-2xl p-6 sm:p-8 cursor-pointer hover:border-cyan-500/50 transition-all"
+                        >
                             <div className="text-3xl sm:text-4xl mb-4">{resource.icon}</div>
                             <h3 className="text-lg sm:text-xl font-bold text-white mb-3">{resource.title}</h3>
                             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">{resource.desc}</p>
-                        </div>
+                        </motion.div>
                     ))}
                 </motion.section>
-
-                {/* CTA Section */}
-                <motion.div
-                    {...fadeUp}
-                    transition={{ delay: 0.2 }}
-                    className="text-center"
-                >
-                    <Link
-                        to="/articles"
-                        className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold rounded-xl transition-all shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 text-sm sm:text-base"
-                    >
-                        View Articles
-                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-                    </Link>
-                </motion.div>
 
             </main>
 
@@ -117,6 +111,62 @@ export default function Resources() {
                     </p>
                 </div>
             </footer>
+
+            {/* Modal Overlay */}
+            <AnimatePresence>
+                {selectedResource && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#050810]/90 backdrop-blur-md"
+                        onClick={() => setSelectedResource(null)}
+                    >
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+                            className="bg-[#0A0E1A] border border-[#1E2A45] shadow-2xl shadow-cyan-500/10 rounded-2xl w-full max-w-lg overflow-hidden relative"
+                            onClick={e => e.stopPropagation()}
+                        >
+                            <button 
+                                onClick={() => setSelectedResource(null)}
+                                className="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors"
+                            >
+                                <X className="w-5 h-5" />
+                            </button>
+                            
+                            <div className="p-8 text-center border-b border-[#1E2A45] bg-[#0F1629]">
+                                <div className="text-5xl sm:text-6xl mb-4 mx-auto animate-bounce">{selectedResource.icon}</div>
+                                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">{selectedResource.title}</h3>
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold">
+                                    Under Development
+                                </div>
+                            </div>
+                            
+                            <div className="p-8">
+                                <div className="flex items-start gap-4 p-4 rounded-xl bg-cyan-500/5 border border-cyan-500/20 mb-6">
+                                    <AlertCircle className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                                    <p className="text-slate-300 text-sm leading-relaxed">
+                                        We are actively developing the <strong>{selectedResource.title}</strong> section to bring you the best experience. 
+                                    </p>
+                                </div>
+                                <p className="text-slate-400 text-sm text-center">
+                                    Coming soon to RO Virtual Lab. Contact our team for further details or early access opportunities!
+                                </p>
+                                <div className="mt-8">
+                                    <button 
+                                        onClick={() => setSelectedResource(null)}
+                                        className="w-full py-3 rounded-xl bg-[#1E2A45] hover:bg-[#2A3B5D] text-white text-sm font-semibold transition-colors"
+                                    >
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }

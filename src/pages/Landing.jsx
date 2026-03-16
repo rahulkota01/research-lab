@@ -506,45 +506,6 @@ function LabPreview() {
   );
 }
 
-function TeamQuotes() {
-  const quotes = [
-    { name: 'Dr. Nikita Abraham', role: 'Structural Biologist', text: 'RO Research Lab has transformed how we visualize molecule interactions. It\'s a game-changer for speed.' },
-    { name: 'Dr. Kat Bay', role: 'Curriculum Designer', text: 'The interface makes complex chemistry accessible. Students learn 2x faster in this virtual environment.' },
-    { name: 'Kevin Halligan', role: 'Strategy Director', text: 'We are bridging the gap between computational power and practical laboratory application.' }
-  ];
-
-  return (
-    <section className="py-24 bg-[#0A0E1A]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-white mb-4">Hear From Our Team</h2>
-          <p className="text-slate-400">Leading the intersection of science and computation</p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-8">
-          {quotes.map((quote, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ y: -5 }}
-              className="p-8 rounded-2xl bg-[#080C18] border border-[#1E2A45] relative"
-            >
-              <div className="text-cyan-500 text-4xl font-serif absolute top-4 left-4 opacity-20">"</div>
-              <p className="text-slate-300 mb-6 italic relative z-10">{quote.text}</p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center font-bold text-white">
-                  {quote.name[0]}
-                </div>
-                <div>
-                  <h4 className="text-white font-bold text-sm">{quote.name}</h4>
-                  <p className="text-slate-500 text-xs">{quote.role}</p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function ForResearchers() {
   const ref = useRef(null);
@@ -724,7 +685,6 @@ export default function Landing() {
         <Solutions navigate={navigate} />
         <TechStrip />
         <ForResearchers />
-        <TeamQuotes />
         <CTA navigate={navigate} />
         <Footer />
       </div>
