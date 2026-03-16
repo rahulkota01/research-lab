@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, useLocation, Link } from 'react-router-dom';
-import { Home, FlaskConical, Beaker, LineChart, BookOpen, User, ArrowLeft } from 'lucide-react';
+import { Home, FlaskConical, Beaker, LineChart, BookOpen, User, ArrowLeft, Menu, X } from 'lucide-react';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export function cn(...inputs) {
     return twMerge(clsx(inputs));
@@ -20,9 +20,24 @@ const navItems = [
 
 export default function Sidebar() {
     const location = useLocation();
+    const [isMobileOpen, setIsMobileOpen] = useState(false);
 
     return (
-        <div className="w-72 fixed top-0 left-0 h-full flex flex-col items-start p-6 z-50">
+        <>
+            {/* Mobile Toggle Button */}
+            <button
+                onClick={() => setIsMobileOpen(!isMobileOpen)}
+                className="lg:hidden fixed top-4 left-4 z-[60] p-2 rounded-lg bg-[#080C18]/90 backdrop-blur border border-[#1E2A45] text-white"
+            >
+                {isMobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+
+            {/* Sidebar */}
+            <div className={cn(
+                "fixed top-0 left-0 h-full flex flex-col items-start p-6 z-50 transition-transform duration-300",
+                isMobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0",
+                "w-72"
+            )}>
             {/* Dark Glassmorphism background */}
             <div className="absolute inset-0 bg-[#080C18] backdrop-blur-xl border-r border-[#1E2A45]" />
             
@@ -123,6 +138,20 @@ export default function Sidebar() {
                     <span className="text-[10px] text-slate-500 font-mono">v3.0.0</span>
                 </div>
             </motion.div>
+            
+            {/* Mobile Overlay */}
+            <AnimatePresence>
+                {isMobileOpen && (
+                    <motion.div
+                        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setIsMobileOpen(false)}
+                    />
+                )}
+            </AnimatePresence>
         </div>
+        </>
     );
 }

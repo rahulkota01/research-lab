@@ -30,7 +30,7 @@ export default function Layout({ children }) {
             
             <Sidebar />
             
-            <main className="flex-1 ml-72 p-8 overflow-y-auto min-h-screen relative">
+            <main className="flex-1 lg:ml-72 p-4 sm:p-8 overflow-y-auto min-h-screen relative pt-16 lg:pt-0">
                 <AnimatePresence mode="wait">
                     <motion.div 
                         key={window.location.pathname}
